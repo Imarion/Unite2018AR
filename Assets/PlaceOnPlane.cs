@@ -29,13 +29,15 @@ public class PlaceOnPlane : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
+            //StartCoroutine(displayTouched());
             Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)
             {
-                StartCoroutine(displayTouched());
+                //StartCoroutine(displayTouched());
                 if (raycastManager.Raycast(touch.position, hits, TrackableType.PlaneWithinPolygon))
                 {
+                    //StartCoroutine(displayTouched());
                     Pose pose = hits[0].pose;
                     Instantiate(PrefabToPlace, pose.position, pose.rotation);
                 }
